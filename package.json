@@ -1,22 +1,26 @@
 {
   "name": "react-bs4grid",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "React Boostrap 4 Grid Component",
   "keywords": [
     "react",
     "bootstrap",
     "grid"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:mickrip/react-bs4grid.git"
+  },
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./src  --out-dir ./lib && node ./build-copycss.js",
+    "build": "webpack -p",
     "lint": "eslint ./src/*.jsx --fix",
-    "watch": "watch \"babel ./src  --out-dir ./lib ./src\"",
+    "watch": "webpack --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "author": "",
+  "author": "Mick Rippon",
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
