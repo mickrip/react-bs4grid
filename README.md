@@ -133,7 +133,7 @@ Adding the `debug` prop within container will add borders to Cols.
 ### `<Container>`
 
 | prop | type | description
-|------|------||------------|
+|------|------|------------|
 | fluid |bool|  turns off the container width restriction. 100% of the width of the container. Default `false` |
 | noGutters |bool | Turns off all guttering for all Rows. Default `false` |
 | debug |bool | Will draw borders around your Cols, to help you figure out what's going on. |
@@ -163,7 +163,7 @@ Adding the `debug` prop within container will add borders to Cols.
 | styles	|obj | applies react css styles |
 | className |string | appends custom classes |
 
-## ShortCuts
+## Shortcuts
 Since gridding your app can get slightly verbose, there are some shortcuts to slightly unverbose your verbose problem.
 
 Example, ommitting Col/Rol inside a Container will automatically insert them:
