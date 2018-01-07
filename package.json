@@ -1,10 +1,7 @@
 {
   "name": "react-bs4grid",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "React Boostrap 4 Grid Component",
-  "files": [
-    "lib"
-  ],
   "keywords": [
     "react",
     "bootstrap",
@@ -25,10 +22,10 @@
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-style-proptype": "^3.1.0",
-    "webpack": "^3.10.0"
+    "react-style-proptype": "^3.1.0"
   },
   "devDependencies": {
+    "webpack": "^3.10.0",
     "@storybook/addon-actions": "^3.3.3",
     "@storybook/addon-links": "^3.3.3",
     "@storybook/react": "^3.3.3",

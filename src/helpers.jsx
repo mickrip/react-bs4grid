@@ -64,8 +64,8 @@ export const showChildrenBasedOnType = (componentProps, propsToPassDown = []) =>
 export const firstChildIsOfType = (children, typeToCheck) => {
   const checkElement = Object.prototype.toString.call(children) === '[object Array]' ? children[0] : children;
   const isColElement = (elem) => {
-    if (elem.type) {
-      return elem.type.name === typeToCheck;
+    if (elem.props) {
+      return elem.props.privateName === typeToCheck;
     }
     return false;
   };

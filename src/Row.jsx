@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import propTypes from 'prop-types';
 import stylePropType from 'react-style-proptype';
 import './scss/bootstrap-grid.scss';
-import { showChildrenBasedOnType } from './helpers';
+import { showChildrenBasedOnType, firstChildIsOfType } from './helpers';
 import Col from './Col';
-import { firstChildIsOfType } from '../lib/helpers';
+
 
 const evalJustifyContent = justifyContent => (justifyContent ? `justify-content-${justifyContent}` : null);
 
@@ -77,6 +77,8 @@ Row.propTypes = {
   md: widthPt,
   lg: widthPt,
   xl: widthPt,
+  // eslint-disable-next-line react/no-unused-prop-types
+  privateName: propTypes.string,
 };
 
 Row.defaultProps = {
@@ -95,6 +97,7 @@ Row.defaultProps = {
   md: undefined,
   lg: undefined,
   xl: undefined,
+  privateName: 'Row',
 
 };
 

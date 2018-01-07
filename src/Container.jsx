@@ -69,6 +69,8 @@ Container.propTypes = {
   lg: widthPt,
   xl: widthPt,
   justifyContent: propTypes.string,
+  // eslint-disable-next-line react/no-unused-prop-types
+  privateName: propTypes.string,
 };
 
 Container.defaultProps = {
@@ -85,6 +87,7 @@ Container.defaultProps = {
   lg: undefined,
   xl: undefined,
   justifyContent: undefined,
+  privateName: 'Container',
 };
 
 export default Container;

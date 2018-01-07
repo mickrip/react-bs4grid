@@ -3,7 +3,7 @@ import {storiesOf} from '@storybook/react';
 import {
     AutoWidths, JustifyContent, Fluid, NoGutter, Normal, TwoCols, VertAlign, VertAlignCols,
     UseCasesNavBar, UseCasesMiddleBox
-} from "./Components";
+} from "./Components.jsx";
 
 storiesOf('Container', module)
     .add('1 Col', Normal)

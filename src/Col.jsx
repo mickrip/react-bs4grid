@@ -33,7 +33,6 @@ const Col = (props) => {
     props.className,
   );
 
-
   return (
     <div className={classes} key={props.key} style={props.style}>
       {props.children}
@@ -68,6 +67,8 @@ Col.propTypes = {
   lg: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
   xl: widthPt,
+  // eslint-disable-next-line react/no-unused-prop-types
+  privateName: propTypes.string,
 };
 
 Col.defaultProps = {
@@ -84,6 +85,8 @@ Col.defaultProps = {
   md: undefined,
   lg: undefined,
   xl: undefined,
+  privateName: 'Col',
 };
+
 
 export default Col;
