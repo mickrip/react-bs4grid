@@ -7,10 +7,19 @@ A Bootstrap 4 implementation for React.
 
 ## Installation
 
-`npm install react-bs4grid` or `yarn add react-bs4grid`
+`npm install react-bs4grid`
+
+or
+
+`yarn add react-bs4grid`
+
+**Importing**
+
+```js
+import { Container, Row, Col } from "react-bs4grid";
+```
 
 ## Examples
-
 
 ### Simple 12 column across
 
@@ -26,12 +35,12 @@ A Bootstrap 4 implementation for React.
 
 ### Columns without props are spanned equally.
 ```js
-    <Container>
-        <Row>
-            <Col>One</Col>
-            <Col>Two</Col>
-        </Row>
-    </Container>
+<Container>
+    <Row>
+        <Col>One</Col>
+        <Col>Two</Col>
+    </Row>
+</Container>
 ```
 *Note:* By default, on mobile resolutions, columns become stacked. You can override this behaviour by adding the `responsive={false}` prop to `<Row>`. ie  `<Row responsive={false}>`.
 
@@ -52,7 +61,7 @@ A Bootstrap 4 implementation for React.
 
 Bootstrap 4 grid is '*mobile-first*'. So, responsive classes like `*xs` are replaced with the `col-{width}` class. In my experience, you're mostly stacking your columns on mobile anyway, so apply the `w` prop only when you want adjacent columns in your mobile view. (note: The `w` prop is an alias for `width`, they're interchangable.) `w="auto"` will work as well.
 
-==Responsive widths are `sm`, `md`, `lg`, `xl`==. See the BS4 docs for more info.
+Responsive widths are `sm`, `md`, `lg`, `xl`. See the BS4 grid docs for more info.
 
 ### Fluid layout
 
@@ -199,12 +208,13 @@ This is shorthand for this:
 </Container>
 ```
 
-
 ## Some use-cases
 
 ### Navigation Bar (non-responsive)
 
-The logo container is only as wide as the logo. Nav section stretches as much as it needs to. Sign up section pushed to the far right.
+* The logo container is only as wide as the logo.
+* Nav section stretches as much as it needs to.
+* Sign up section pushed to the far right.
 
 ```js
 <Container fluid style={{background:"#eee"}}>
@@ -227,6 +237,8 @@ The logo container is only as wide as the logo. Nav section stretches as much as
 ```
 
 ### Content horizontally and vertically centred
+
+* Row requires an explicit height for vertical alignment.
 
 ```js
 <Container>
