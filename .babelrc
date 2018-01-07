@@ -1,0 +1,13 @@
+{
+  "presets": ["babel-preset-env"],
+  "plugins": [
+    "babel-plugin-transform-react-jsx",
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "extensions": [".js", ".ios.js", ".android.js"]
+      }
+    ]
+  ]
+}
