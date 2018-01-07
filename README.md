@@ -54,7 +54,7 @@ Bootstrap 4 grid is '*mobile-first*'. So, responsive classes like `*xs` are repl
 Use the `fluid` prop on your `<Container>`.
 
 ```js
-<Container>
+<Container fluid>
     <Row>
         <Col md={4}>Larry!</Col>
         <Col md={4}>Curly!</Col>

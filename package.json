@@ -5,6 +5,11 @@
   "files": [
     "lib"
   ],
+  "keywords": [
+    "react",
+    "bootstrap",
+    "grid"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -15,7 +20,7 @@
     "build-storybook": "build-storybook"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
