@@ -4,6 +4,11 @@ A Bootstrap 4 implementation for React.
 
 [https://getbootstrap.com/docs/4.0/layout/grid/](https://getbootstrap.com/docs/4.0/layout/grid/)
 
+
+## Installation
+
+`npm install react-bs4grid` or `yarn add react-bs4grid`
+
 ## Examples
 
 
