@@ -78,7 +78,6 @@ Use the `noGutters` prop on `<Row>` to remove the padding from each Col.
 </Container>
 ```
 
-
 ### Horizonally aligning cols
 
 Use the `justifyContent` prop in `<Row>`. Supported values are `start|end|center|between|around`.
@@ -87,7 +86,7 @@ Use the `justifyContent` prop in `<Row>`. Supported values are `start|end|center
 <Container>
     <Row justifyContent="center">
         <Col sm={5}>
-            I'm 5 columns wide and centered.
+            5 columns wide and centered.
         </Col>
     </Row>
 </Container>

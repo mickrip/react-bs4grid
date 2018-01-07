@@ -1,14 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
+import stylePropType from 'react-style-proptype';
 import './scss/bootstrap-grid.scss';
 import { showChildrenBasedOnType } from './helpers';
 import Col from './Col';
 import { firstChildIsOfType } from '../lib/helpers';
 
-const evalJustifyContent = props => (props.justifyContent ? `justify-content-${props.justifyContent}` : null);
+const evalJustifyContent = justifyContent => (justifyContent ? `justify-content-${justifyContent}` : null);
 
-const evalAlignItems = props => (props.alignItems ? `align-items-${props.alignItems}` : false);
+const evalAlignItems = alignItems => (alignItems ? `align-items-${alignItems}` : false);
 
 const evalAlignSelf = prop => (prop ? `align-self-${prop}` : false);
 
@@ -17,16 +18,16 @@ const Row = (props) => {
   const classes = classNames(
     'row',
     { 'no-gutters': noGuttersEval },
-    evalJustifyContent(props),
-    evalAlignItems(props),
+    evalJustifyContent(props.justifyContent),
+    evalAlignItems(props.alignItems),
     evalAlignSelf(props.alignSelf),
     { debug: props.debug },
     props.className,
   );
 
 
-  /* Check if first child is a <Col>. If not, wrap it in
-   a <Col> and pass down some props. */
+  /* Check if first child is a Col. If not, wrap it in
+   a Col and pass down some props. */
   if (firstChildIsOfType(props.children, 'Col')) {
     return (
       <div key={props.key} className={classes} style={props.style}>
@@ -62,8 +63,10 @@ Row.propTypes = {
   noGuttersParent: propTypes.bool,
   debug: propTypes.bool,
   alignSelf: propTypes.string,
+  alignItems: propTypes.string,
+  justifyContent: propTypes.string,
   className: propTypes.string,
-  style: propTypes.style,
+  style: stylePropType,
   children: propTypes.oneOfType([
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
@@ -79,11 +82,13 @@ Row.propTypes = {
 Row.defaultProps = {
   debug: false,
   noGutters: false,
+  style: {},
   noGuttersParent: false,
   responsive: true,
   alignSelf: undefined,
+  alignItems: undefined,
+  justifyContent: undefined,
   className: undefined,
-  style: {},
   key: 1,
   w: undefined,
   sm: undefined,
