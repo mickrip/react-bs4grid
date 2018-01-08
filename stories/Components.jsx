@@ -1,7 +1,9 @@
 import React from 'react';
-import { Container, Row, Col } from '../lib';
+//import { Container, Row, Col } from '../lib';
+import { Container, Row, Col } from '../src';
+
 import './css.scss';
-//! !!
+
 export const Normal = () => (
   <Container debug>
     <Row>
@@ -236,5 +238,11 @@ export const UseCasesMiddleBox = () => (
         </Col>
       </Row>
     </Container>
+  </div>
+);
+
+export const Emptys = () => (
+  <div>
+    <Container debug></Container>
   </div>
 );
