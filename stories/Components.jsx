@@ -1,5 +1,5 @@
 import React from 'react';
-//import { Container, Row, Col } from '../lib';
+// import { Container, Row, Col } from '../lib';
 import { Container, Row, Col } from '../src';
 
 import './css.scss';
@@ -243,6 +243,21 @@ export const UseCasesMiddleBox = () => (
 
 export const Emptys = () => (
   <div>
-    <Container debug></Container>
+    <Container debug />
   </div>
 );
+
+export const Loops = () => {
+  const stuff = [7, 6, 5, 4, 3, 2, 1];
+  return (
+    <Container>
+      <Row>
+        {stuff.map((num, key) => (
+          <Col key={key}>
+            <div>Num: {num}</div>
+          </Col>
+          ))}
+      </Row>
+    </Container>
+  );
+};

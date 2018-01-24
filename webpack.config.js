@@ -64,20 +64,6 @@ module.exports = {
 
 
   plugins: [
-    new webpack.optimize.AggressiveMergingPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        screw_ie8: true,
-      },
-
-      mangle: {
-        screw_ie8: true,
-      },
-      output: {
-        comments: false,
-        screw_ie8: true,
-      },
-    }),
+    //new webpack.optimize.AggressiveMergingPlugin()
   ],
 };

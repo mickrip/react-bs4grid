@@ -2,9 +2,8 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import {
   AutoWidths, JustifyContent, Fluid, NoGutter, Normal, TwoCols, VertAlign, VertAlignCols,
-  UseCasesNavBar, UseCasesMiddleBox, Emptys,
+  UseCasesNavBar, UseCasesMiddleBox, Emptys, Loops
 } from './Components.jsx';
-
 
 
 storiesOf('Container', module)
@@ -18,4 +17,5 @@ storiesOf('Container', module)
   .add('Vertical Align Col', VertAlignCols)
   .add('Use Case - Navbar', UseCasesNavBar)
   .add('Use Case - Middle', UseCasesMiddleBox)
-  .add('Empty Components', Emptys);
+  .add('Empty Components', Emptys)
+  .add('Loops', Loops);

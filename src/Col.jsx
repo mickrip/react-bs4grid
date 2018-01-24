@@ -34,7 +34,7 @@ const Col = (props) => {
   );
 
   return (
-    <div className={classes} key={props.key} style={props.style}>
+    <div className={classes} style={props.style}>
       {props.children}
     </div>
   );
@@ -55,7 +55,6 @@ Col.propTypes = {
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
   ]).isRequired,
-  key: propTypes.number,
   className: propTypes.string,
   responsiveParent: propTypes.bool,
   w: widthPt,
@@ -79,7 +78,6 @@ Col.defaultProps = {
   className: undefined,
   responsiveParent: true,
   style: {},
-  key: 1,
   w: undefined,
   sm: undefined,
   md: undefined,

@@ -61,7 +61,7 @@ Container.propTypes = {
   children: propTypes.oneOfType([
     propTypes.arrayOf(propTypes.node),
     propTypes.node,
-  ]).isRequired,
+  ]),
   key: propTypes.number,
   w: widthPt,
   sm: widthPt,
@@ -79,6 +79,7 @@ Container.defaultProps = {
   debug: false,
   noGutters: false,
   className: undefined,
+  children: undefined,
   style: {},
   key: 1,
   w: undefined,
