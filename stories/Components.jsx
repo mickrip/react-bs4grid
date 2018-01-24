@@ -77,28 +77,32 @@ export const JustifyContent = () => (
 );
 
 export const NoGutter = () => (
-  <Container debug fluid noGutters>
-    <Row><h2>With No-Guttering</h2></Row>
-    <Row noGutters>
-      <Col md={4}>Larry!</Col>
-      <Col md={4}>Curly</Col>
-      <Col md={4}>Moe!</Col>
-    </Row>
-    <Row><h2>Without</h2></Row>
-    <Row noGutters alignItems="center" style={{ background: '#eee' }}>
-      <Col md="auto"><h3>Logo</h3></Col>
-      <Col md="auto">Curly</Col>
-      <Col md="auto" push="left">
-        <div className="box2">push="center" md="auto"</div>
-      </Col>
-    </Row>
-    <Row><h2>Col Only</h2></Row>
-    <Row>
-      <Col md={4}>Larry!</Col>
-      <Col md={4} noGutter>noGutter</Col>
-      <Col md={4}>Moe!</Col>
-    </Row>
-  </Container>
+  <div>
+    <Container debug fluid noGutters>
+      <Row><h2>With No-Guttering</h2></Row>
+      <Row noGutters>
+        <Col md={4}>Larry!</Col>
+        <Col md={4}>Curly</Col>
+        <Col md={4}>Moe!</Col>
+      </Row>
+    </Container>
+    <Container debug>
+      <Row><h2>Without</h2></Row>
+      <Row noGutters alignItems="center" style={{ background: '#eee' }}>
+        <Col md="auto"><h3>Logo</h3></Col>
+        <Col md="auto">Curly</Col>
+        <Col md="auto" push="left">
+          <div className="box2">push="center" md="auto"</div>
+        </Col>
+      </Row>
+      <Row><h2>Col Only</h2></Row>
+      <Row>
+        <Col md={4}>Larry!</Col>
+        <Col md={4} noGutter>noGutter</Col>
+        <Col md={4}>Moe!</Col>
+      </Row>
+    </Container>
+  </div>
 );
 
 export const Fluid = () => (
@@ -250,14 +254,29 @@ export const Emptys = () => (
 export const Loops = () => {
   const stuff = [7, 6, 5, 4, 3, 2, 1];
   return (
-    <Container>
+    <Container debug>
       <Row>
         {stuff.map((num, key) => (
-          <Col key={key}>
+          <Col md={4} sm={6} key={key}>
             <div>Num: {num}</div>
           </Col>
-          ))}
+        ))}
       </Row>
     </Container>
   );
 };
+
+export const ShortCuts = () => (
+  <div>
+    <h1>Just Container</h1>
+    <Container>
+      <div>Foo</div>
+    </Container>
+    <h1>Just Row</h1>
+    <Container>
+      <Row>
+        <div>Bar</div>
+      </Row>
+    </Container>
+  </div>
+);

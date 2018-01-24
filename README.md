@@ -177,37 +177,6 @@ Adding the `debug` prop within container will add borders to Cols.
 | styles	|obj | applies react css styles |
 | className |string | appends custom classes |
 
-## Shortcuts
-Since gridding your app can get slightly verbose, there are some shortcuts to slightly unverbose your verbose problem.
-
-Example, ommitting Col/Rol inside a Container will automatically insert them:
-
-```js
-<Container>
-    HELLO WORLD
-</Container>
-```
-
-Some props can be inherited too. Like example, you can do this:
-
-```js
-<Container sm={8} md={6} lg={4} xl={3} justifyContent="center">
-    HELLO WORLD
-</Container>
-```
-
-This is shorthand for this:
-
-```js
-<Container>
-    <Row justifyContent="center">
-        <Col sm={8} md={6} lg={4} xl={3}>
-            HELLO WORLD
-        </Col>
-    </Row>
-</Container>
-```
-
 ## Some use-cases
 
 ### Navigation Bar (non-responsive)
@@ -251,15 +220,3 @@ This is shorthand for this:
     </Row>
 </Container>
 ```
-
-
-
-
-
-
-
-
-
-
-
-

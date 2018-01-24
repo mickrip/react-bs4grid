@@ -37,7 +37,6 @@ export const showChildrenBasedOnType = (componentProps, propsToPassDown = []) =>
   const isMappable = Object.prototype.toString.call(componentProps.children) === '[object Array]';
   const isString = Object.prototype.toString.call(componentProps.children) === '[object String]';
 
-
   // return if it's just a string
   if (isString) return componentProps.children;
 
@@ -49,26 +48,4 @@ export const showChildrenBasedOnType = (componentProps, propsToPassDown = []) =>
   return !isMappable ?
     getElement(componentProps.children, passDownProps(1))
     : componentProps.children.map((child, key) => getElement(child, passDownProps(key)));
-};
-
-
-/**
- * Looks at the children and ensures first child is "typeToCheck".
- * Used to ensure that Container has Row as a child, and Row has a Col.
- *
- * @param children
- * @param typeToCheck
- * @returns {boolean}
- */
-
-export const firstChildIsOfType = (children, typeToCheck) => {
-  if (children === undefined) return false;
-  const checkElement = Object.prototype.toString.call(children) === '[object Array]' ? children[0] : children;
-  const isColElement = (elem) => {
-    if (elem.props) {
-      return elem.props.privateName === typeToCheck;
-    }
-    return false;
-  };
-  return isColElement(checkElement);
 };
