@@ -36,9 +36,9 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [{
-          loader: 'file-loader',
+          loader: 'css-loader',
           options: {
-            name: '[name].css',
+            modules: true,
           },
         },
         {
