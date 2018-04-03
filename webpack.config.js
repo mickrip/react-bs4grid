@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -36,38 +35,38 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: require.resolve('postcss-loader'),
-              options: {
-                ident: 'postcss',
-                plugins: () => [
-                  require('postcss-flexbugs-fixes'),
-                  autoprefixer({
-                    browsers: [
-                      '>1%',
-                      'last 4 versions',
-                      'Firefox ESR',
-                      'not ie < 9',
-                    ],
-                    flexbox: 'no-2009',
-                  }),
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].css',
+          },
+        },
+        {
+          loader: require.resolve('postcss-loader'),
+          options: {
+            ident: 'postcss',
+            plugins: () => [
+              require('postcss-flexbugs-fixes'),
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9',
                 ],
-              },
-            },
-            {loader: 'sass-loader'},
-          ]
-        })
+                flexbox: 'no-2009',
+              }),
+            ],
+          },
+        },
+        { loader: 'sass-loader' },
+        ],
       },
     ],
   },
 
 
   plugins: [
-    new ExtractTextPlugin('styles.css', {
-      allChunks: true,
-    })
-  ]
+
+  ],
 };
