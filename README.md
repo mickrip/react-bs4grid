@@ -174,6 +174,8 @@ Adding the `debug` prop within container will add borders to Cols.
 | push       |string| Align col. Effective when width="auto" |
 | w (or width)| any  | Generic width. Options are 1-12 or `auto` |
 | sm / md / lg / xl | any | Width based on breakpoint. Options are 1-12 or `auto` |
+| offsetSm / offsetMd / OffsetLg / OffsetXl | any | Offset column. |
+
 | styles	|obj | applies react css styles |
 | className |string | appends custom classes |
 

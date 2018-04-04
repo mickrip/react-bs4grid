@@ -35,31 +35,28 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader',{
-          loader: 'css-loader',
-          options: {
-            modules: true,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                autoprefixer({
+                  browsers: [
+                    '>1%',
+                    'last 4 versions',
+                    'Firefox ESR',
+                    'not ie < 9',
+                  ],
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
           },
-        },
-        {
-          loader: require.resolve('postcss-loader'),
-          options: {
-            ident: 'postcss',
-            plugins: () => [
-              require('postcss-flexbugs-fixes'),
-              autoprefixer({
-                browsers: [
-                  '>1%',
-                  'last 4 versions',
-                  'Firefox ESR',
-                  'not ie < 9',
-                ],
-                flexbox: 'no-2009',
-              }),
-            ],
-          },
-        },
-        { loader: 'sass-loader' },
+          { loader: 'sass-loader' },
         ],
       },
     ],
@@ -67,6 +64,6 @@ module.exports = {
 
 
   plugins: [
-
+    // new webpack.optimize.AggressiveMergingPlugin()
   ],
 };

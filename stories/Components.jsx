@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Container, Row, Col } from '../lib';
-import { Container, Row, Col } from '../src';
+import {Container, Row, Col} from '../src';
 
 import './css.scss';
 
@@ -88,7 +88,7 @@ export const NoGutter = () => (
     </Container>
     <Container debug>
       <Row><h2>Without</h2></Row>
-      <Row noGutters alignItems="center" style={{ background: '#eee' }}>
+      <Row noGutters alignItems="center" style={{background: '#eee'}}>
         <Col md="auto"><h3>Logo</h3></Col>
         <Col md="auto">Curly</Col>
         <Col md="auto" push="left">
@@ -147,7 +147,7 @@ export const AutoWidths = () => (
   <div>
     <Container debug>
 
-      <Row style={{ textAlign: 'center' }}>
+      <Row style={{textAlign: 'center'}}>
         <p><strong>Stacked for mobile</strong>
           <em> &lt;Row responsive=true&gt; (this is default)</em>
         </p>
@@ -163,7 +163,7 @@ export const AutoWidths = () => (
         <Col sm="auto">Six</Col>
       </Row>
 
-      <Row style={{ textAlign: 'center' }}>
+      <Row style={{textAlign: 'center'}}>
         <p><strong>Not Responsive</strong>
           <em> &lt;Row responsive=false&gt;</em>
         </p>
@@ -184,7 +184,7 @@ export const AutoWidths = () => (
 
 export const VertAlign = () => (
   <Container>
-    <Row noGutters alignItems="center" justifyContent="center" style={{ height: '100vh' }}>
+    <Row noGutters alignItems="center" justifyContent="center" style={{height: '100vh'}}>
       <Col sm="5">
         <div className="box">
           Hello World!
@@ -197,7 +197,7 @@ export const VertAlign = () => (
 export const VertAlignCols = () => (
   <Container fluid noGutters debug>
     <Row>
-      <Col style={{ height: 200 }}>Hello</Col>
+      <Col style={{height: 200}}>Hello</Col>
       <Col alignItems="center">
         center
       </Col>
@@ -211,7 +211,7 @@ export const VertAlignCols = () => (
 export const UseCasesNavBar = () => (
   <div>
     <Container><h3>Navbar</h3></Container>
-    <Container fluid debug style={{ background: '#eee' }}>
+    <Container fluid debug style={{background: '#eee'}}>
       <Row>
         <Col>
           <Row alignItems="center" responsive={false}>
@@ -234,9 +234,9 @@ export const UseCasesNavBar = () => (
 export const UseCasesMiddleBox = () => (
   <div>
     <Container debug>
-      <Row alignItems="center" justifyContent="center" style={{ height: '100vh' }}>
+      <Row alignItems="center" justifyContent="center" style={{height: '100vh'}}>
         <Col w={5}>
-          <div style={{ border: '1px solid black', padding: 20 }}>
+          <div style={{border: '1px solid black', padding: 20}}>
             Middle Content
           </div>
         </Col>
@@ -247,7 +247,7 @@ export const UseCasesMiddleBox = () => (
 
 export const Emptys = () => (
   <div>
-    <Container debug />
+    <Container debug/>
   </div>
 );
 
@@ -266,17 +266,13 @@ export const Loops = () => {
   );
 };
 
-export const ShortCuts = () => (
-  <div>
-    <h1>Just Container</h1>
-    <Container>
-      <div>Foo</div>
-    </Container>
-    <h1>Just Row</h1>
-    <Container>
+
+export const Offsets = () => {
+  return (
+    <Container debug>
       <Row>
-        <div>Bar</div>
+        <Col offsetMd={5} offsetSm={0}>OffsetBy5</Col>
       </Row>
     </Container>
-  </div>
-);
+  );
+};

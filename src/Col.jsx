@@ -20,11 +20,26 @@ const evalAutos = (props) => {
   return (p !== undefined) ? `col-${p}` : false;
 };
 
+
+const evalOffsets = props => ['offsetSm', 'offsetMd', 'offsetLg', 'offsetXl'].map((size) => {
+  const sizeMap = {
+    offsetSm: 'offset-sm',
+    offsetMd: 'offset-md',
+    offsetLg: 'offset-lg',
+    offsetXl: 'offset-xl',
+  };
+
+  const propValue = props[size];
+  return propValue ? `${sizeMap[size]}-${propValue}` : false;
+});
+
+
 const Col = (props) => {
   const classes = classNames(
     props.responsiveParent === false || props.w ? 'col' : false,
     props.responsiveParent === true && !props.w ? 'col-sm' : false,
-    { 'rbs4-no-gutter': props.noGutter },
+    {'rbs4-no-gutter': props.noGutter},
+    evalOffsets(props),
     evalAlignSelf(props.alignSelf),
     evalWidths(props),
     evalAlignItems(props.alignItems),
@@ -67,7 +82,14 @@ Col.propTypes = {
   // eslint-disable-next-line react/no-unused-prop-types
   xl: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  privateName: propTypes.string,
+  offsetSm: widthPt,
+  // eslint-disable-next-line react/no-unused-prop-types
+  offsetMd: widthPt,
+  // eslint-disable-next-line react/no-unused-prop-types
+  offsetLg: widthPt,
+  // eslint-disable-next-line react/no-unused-prop-types
+  offsetXl: widthPt,
+
 };
 
 Col.defaultProps = {
@@ -83,7 +105,10 @@ Col.defaultProps = {
   md: undefined,
   lg: undefined,
   xl: undefined,
-  privateName: 'Col',
+  offsetSm: undefined,
+  offsetMd: undefined,
+  offsetLg: undefined,
+  offsetXl: undefined,
 };
 
 
