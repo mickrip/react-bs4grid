@@ -271,7 +271,7 @@ export const Offsets = () => {
   return (
     <Container debug>
       <Row>
-        <Col offsetMd={5} offsetSm={0}>OffsetBy5</Col>
+        <Col sm={{ size: 4 }} md={{ size: 6, offset: 5 }}>OffsetBy5</Col>
       </Row>
     </Container>
   );

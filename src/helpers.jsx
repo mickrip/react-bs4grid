@@ -24,7 +24,7 @@ export const shouldThisComponentBeInjectedWithProps = (component) => {
  */
 
 export const showChildrenBasedOnType = (componentProps, propsToPassDown = []) => {
-  if (!componentProps.children) return <span />;
+  if (!componentProps.children) return null;
 
   const passDownProps = (key = 1) => {
     const o = { key };

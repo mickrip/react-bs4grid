@@ -2,46 +2,42 @@ import React from 'react';
 import classNames from 'classnames';
 import propTypes from 'prop-types';
 import stylePropType from 'react-style-proptype';
+import pickBy from 'lodash/pickBy';
+import pick from 'lodash/pick';
+import identity from 'lodash/identity';
+import reduce from 'lodash/reduce';
 import './scss/bootstrap-grid.scss';
 
-const evalAlignSelf = prop => (prop ? `align-self-${prop}` : false);
+const ALLOWED_BREAKPOINTS = ['sm', 'md', 'lg', 'xl'];
 
-const evalWidths = props => ['sm', 'md', 'lg', 'xl'].map((size) => {
-  const propValue = props[size];
-  return propValue ? `col-${size}-${propValue}` : false;
-});
+const evalAlignSelf = prop => (prop ? `align-self-${prop}` : false);
 
 const evalAlignItems = alignItems => (alignItems ? `rbs4-flex align-items-${alignItems}` : undefined);
 
 const evalPush = push => (push ? `rbs4-push-${push}` : undefined);
 
-const evalAutos = (props) => {
-  const p = props.w || props.width;
-  return (p !== undefined) ? `col-${p}` : false;
-};
+const evalAutos = ({ w }) => w && `col-${w}`;
 
+const evalWidth = (breakpointProps) => 
+  reduce(breakpointProps, (r, v, k) => v.size ? [...r, `col-${k}-${v.size}`] : r, []);
 
-const evalOffsets = props => ['offsetSm', 'offsetMd', 'offsetLg', 'offsetXl'].map((size) => {
-  const sizeMap = {
-    offsetSm: 'offset-sm',
-    offsetMd: 'offset-md',
-    offsetLg: 'offset-lg',
-    offsetXl: 'offset-xl',
-  };
+const evalOffset = (breakpointProps) => 
+reduce(breakpointProps, (r, v, k) => v.offset ? [...r, `offset-${k}-${v.offset}`] : r, []);
 
-  const propValue = props[size];
-  return propValue ? `${sizeMap[size]}-${propValue}` : false;
-});
-
+const evalOrder = (breakpointProps) => 
+  reduce(breakpointProps, (r, v, k) => v.order ? [...r, `order-${k}-${v.order}`] : r, []);
 
 const Col = (props) => {
+  const breakpointProps = pickBy(pick(props, ALLOWED_BREAKPOINTS), identity);
+
   const classes = classNames(
     props.responsiveParent === false || props.w ? 'col' : false,
     props.responsiveParent === true && !props.w ? 'col-sm' : false,
     {'rbs4-no-gutter': props.noGutter},
-    evalOffsets(props),
     evalAlignSelf(props.alignSelf),
-    evalWidths(props),
+    evalWidth(breakpointProps),
+    evalOffset(breakpointProps),
+    evalOrder(breakpointProps),
     evalAlignItems(props.alignItems),
     evalAutos(props),
     evalPush(props.push),
@@ -54,6 +50,14 @@ const Col = (props) => {
     </div>
   );
 };
+
+const widthBreakpointObj = propTypes.shape([
+  propTypes.shape({
+    size: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    offset: propTypes.oneOfType([propTypes.string, propTypes.number]),
+    order: propTypes.oneOfType([propTypes.string, propTypes.number]),
+  })
+]);
 
 const widthPt = propTypes.oneOfType([
   propTypes.string,
@@ -74,22 +78,13 @@ Col.propTypes = {
   responsiveParent: propTypes.bool,
   w: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  sm: widthPt,
+  sm: widthBreakpointObj,
   // eslint-disable-next-line react/no-unused-prop-types
-  md: widthPt,
+  md: widthBreakpointObj,
   // eslint-disable-next-line react/no-unused-prop-types
-  lg: widthPt,
+  lg: widthBreakpointObj,
   // eslint-disable-next-line react/no-unused-prop-types
-  xl: widthPt,
-  // eslint-disable-next-line react/no-unused-prop-types
-  offsetSm: widthPt,
-  // eslint-disable-next-line react/no-unused-prop-types
-  offsetMd: widthPt,
-  // eslint-disable-next-line react/no-unused-prop-types
-  offsetLg: widthPt,
-  // eslint-disable-next-line react/no-unused-prop-types
-  offsetXl: widthPt,
-
+  xl: widthBreakpointObj,
 };
 
 Col.defaultProps = {
