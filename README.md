@@ -49,10 +49,10 @@ import { Container, Row, Col } from "react-bs4grid";
 ```js
 <Container>
     <Row>
-        <Col w={6} md={4}>
+        <Col w={6} md={{ size: 4 }}>
             .col-6 .col-md-4
         </Col>
-        <Col w={6} md={8}>
+        <Col w={6} md={{ size: 8 }}>
             .col-6 .col-md-8
         </Col>
     </Row>
@@ -70,9 +70,9 @@ Use the `fluid` prop on your `<Container>`.
 ```js
 <Container fluid>
     <Row>
-        <Col md={4}>Larry!</Col>
-        <Col md={4}>Curly!</Col>
-        <Col md={4}>Moe!</Col>
+        <Col md={{ size: 4 }}>Larry!</Col>
+        <Col md={{ size: 4 }}>Curly!</Col>
+        <Col md={{ size: 4 }}>Moe!</Col>
     </Row>
 </Container>
 ```
@@ -85,9 +85,9 @@ Use the `noGutters` prop on `<Row>` to remove the padding from each Col.
 ```js
 <Container debug>
     <Row noGutters>
-        <Col md={4}>Larry</Col>
-        <Col md={4}>Curly</Col>
-        <Col md={4}>Moe</Col>
+        <Col md={{ size: 4 }}>Larry</Col>
+        <Col md={{ size: 4 }}>Curly</Col>
+        <Col md={{ size: 4 }}>Moe</Col>
     </Row>
 </Container>
 ```
@@ -99,7 +99,7 @@ Use the `justifyContent` prop in `<Row>`. Supported values are `start|end|center
 ```js
 <Container>
     <Row justifyContent="center">
-        <Col sm={5}>
+        <Col sm={{ size: 5 }}>
             5 columns wide and centered.
         </Col>
     </Row>
@@ -114,7 +114,7 @@ Use the `alignItems` prop in `<Row>`. Row needs to be styled with a height befor
 ```js
 <Container>
     <Row alignItems="center" justifyContent="center" style={{height: "100vh"}}>
-        <Col sm="5">Hello World</Col>
+        <Col sm={{ size: 5 }}>Hello World</Col>
     </Row>
 </Container>
  ```
@@ -173,9 +173,10 @@ Adding the `debug` prop within container will add borders to Cols.
 | alignItems |string|  Determines how content is vertically aligned. Options are `start`, `center`, `end`  |
 | push       |string| Align col. Effective when width="auto" |
 | w (or width)| any  | Generic width. Options are 1-12 or `auto` |
-| sm / md / lg / xl | any | Width based on breakpoint. Options are 1-12 or `auto` |
-| offsetSm / offsetMd / OffsetLg / OffsetXl | any | Offset column. |
-
+| sm / md / lg / xl | any | Width based on breakpoint. Provide an object with valid keys `size`, `order`, `offset`  |
+| size | string / number | Property of width-based breakpoint. Sets width at specified breakpoint. Options are 1-12 |
+| order | string / number | Property of width-based breakpoint. Sets order at specified breakpoint. Options are 1-12 |
+| offset | string / number | Property of width breakpoint. Sets offset at specified breakpoint. Options are 1-12 |
 | styles	|obj | applies react css styles |
 | className |string | appends custom classes |
 

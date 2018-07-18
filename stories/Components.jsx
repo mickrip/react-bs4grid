@@ -17,10 +17,10 @@ export const Normal = () => (
 export const TwoCols = () => (
   <Container debug>
     <Row>
-      <Col w={6} md={4}>
+      <Col w={6} md={{ size: 4 }}>
         .col-6 .col-md-4
       </Col>
-      <Col w={6} md={8}>
+      <Col w={6} md={{ size: 8 }}>
         .col-6 .col-md-8
       </Col>
     </Row>
@@ -39,36 +39,36 @@ export const TwoCols = () => (
 export const JustifyContent = () => (
   <Container debug>
     <Row justifyContent="center">
-      <Col sm={5}>
+      <Col sm={{ size: 5 }}>
         justifyContent="center"
       </Col>
     </Row>
     <Row justifyContent="end">
-      <Col sm={5}>
+      <Col sm={{ size: 5 }}>
         <div>justifyContent="end"</div>
       </Col>
 
     </Row>
     <Row justifyContent="start">
-      <Col sm={5}>
+      <Col sm={{ size: 5 }}>
         justifyContent="start"
       </Col>
     </Row>
 
     <Row justifyContent="around">
-      <Col sm={4}>
+      <Col sm={{ size: 4 }}>
         justifyContent="around"
       </Col>
-      <Col sm={4}>
+      <Col sm={{ size: 4 }}>
         justifyContent="around"
       </Col>
     </Row>
 
     <Row justifyContent="between">
-      <Col sm={3}>
+      <Col sm={{ size: 3 }}>
         justifyContent="between"
       </Col>
-      <Col sm={3}>
+      <Col sm={{ size: 3 }}>
         justifyContent="between"
       </Col>
     </Row>
@@ -81,9 +81,9 @@ export const NoGutter = () => (
     <Container debug fluid noGutters>
       <Row><h2>With No-Guttering</h2></Row>
       <Row noGutters>
-        <Col md={4}>Larry!</Col>
-        <Col md={4}>Curly</Col>
-        <Col md={4}>Moe!</Col>
+        <Col md={{ size: 4 }}>Larry!</Col>
+        <Col md={{ size: 4 }}>Curly</Col>
+        <Col md={{ size: 4 }}>Moe!</Col>
       </Row>
     </Container>
     <Container debug>
@@ -97,9 +97,9 @@ export const NoGutter = () => (
       </Row>
       <Row><h2>Col Only</h2></Row>
       <Row>
-        <Col md={4}>Larry!</Col>
-        <Col md={4} noGutter>noGutter</Col>
-        <Col md={4}>Moe!</Col>
+        <Col md={{ size: 4 }}>Larry!</Col>
+        <Col md={{ size: 4 }} noGutter>noGutter</Col>
+        <Col md={{ size: 4 }}>Moe!</Col>
       </Row>
     </Container>
   </div>
@@ -110,9 +110,9 @@ export const Fluid = () => (
     <h2>Container.fluid prop</h2>
     <Container debug fluid>
       <Row>
-        <Col md={4}>Larry!</Col>
-        <Col md={4}>Curly!</Col>
-        <Col md={4}>Moe!</Col>
+        <Col md={{ size: 4 }}>Larry!</Col>
+        <Col md={{ size: 4 }}>Curly!</Col>
+        <Col md={{ size: 4 }}>Moe!</Col>
       </Row>
     </Container>
 
@@ -120,21 +120,21 @@ export const Fluid = () => (
     <h2>Container.fluid, noGutters prop</h2>
     <Container debug fluid noGutters>
       <Row>
-        <Col md={4}>Larry</Col>
-        <Col md={4}>Curly</Col>
-        <Col md={4}>Moe</Col>
+        <Col md={{ size: 4 }}>Larry</Col>
+        <Col md={{ size: 4 }}>Curly</Col>
+        <Col md={{ size: 4 }}>Moe</Col>
       </Row>
     </Container>
 
     <h2>Stuff</h2>
 
-    <Container sm={8} md={6} lg={4} xl={3} justifyContent="center" debug>
+    <Container md={{ size: 6 }} sm={{ size: 8 }} lg={{ size: 4 }} xl={{ size: 3 }} justifyContent="center" debug>
       HELLO WORLD
     </Container>
 
     <Container debug>
       <Row justifyContent="center">
-        <Col sm={8} md={6} lg={4} xl={3}>
+        <Col md={{ size: 6 }} sm={{ size: 8 }} lg={{ size: 4 }} xl={{ size: 3 }}>
           HELLO WORLD
         </Col>
       </Row>
@@ -257,7 +257,7 @@ export const Loops = () => {
     <Container debug>
       <Row>
         {stuff.map((num, key) => (
-          <Col md={4} sm={6} key={key}>
+          <Col md={{ size: 4 }} sm={{ size: 6 }} key={key}>
             <div>Num: {num}</div>
           </Col>
         ))}
@@ -272,6 +272,19 @@ export const Offsets = () => {
     <Container debug>
       <Row>
         <Col sm={{ size: 4 }} md={{ size: 6, offset: 5 }}>OffsetBy5</Col>
+      </Row>
+    </Container>
+  );
+};
+
+
+export const Orders = () => {
+  return (
+    <Container debug>
+      <Row>
+        <Col md={{ size: 4, order: 3 }}>md, first but last</Col>
+        <Col md={{ size: 4, order: 2 }}>md, middle</Col>
+        <Col md={{ size: 4, order: 1 }}>md, last but first</Col>
       </Row>
     </Container>
   );

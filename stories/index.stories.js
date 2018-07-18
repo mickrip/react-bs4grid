@@ -2,7 +2,7 @@ import React from 'react';
 import {storiesOf} from '@storybook/react';
 import {
   AutoWidths, JustifyContent, Fluid, NoGutter, Normal, TwoCols, VertAlign, VertAlignCols,
-  UseCasesNavBar, UseCasesMiddleBox, Emptys, Loops, Offsets,
+  UseCasesNavBar, UseCasesMiddleBox, Emptys, Loops, Offsets, Orders,
 } from './Components.jsx';
 
 
@@ -19,4 +19,5 @@ storiesOf('Container', module)
   .add('Use Case - Middle', UseCasesMiddleBox)
   .add('Empty Components', Emptys)
   .add('Loops', Loops)
-  .add('Offsets', Offsets);
+  .add('Offsets', Offsets)
+  .add('Orders', Orders);

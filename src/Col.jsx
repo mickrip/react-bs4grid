@@ -22,12 +22,13 @@ const evalWidth = (breakpointProps) =>
   reduce(breakpointProps, (r, v, k) => v.size ? [...r, `col-${k}-${v.size}`] : r, []);
 
 const evalOffset = (breakpointProps) => 
-reduce(breakpointProps, (r, v, k) => v.offset ? [...r, `offset-${k}-${v.offset}`] : r, []);
+  reduce(breakpointProps, (r, v, k) => v.offset ? [...r, `offset-${k}-${v.offset}`] : r, []);
 
 const evalOrder = (breakpointProps) => 
   reduce(breakpointProps, (r, v, k) => v.order ? [...r, `order-${k}-${v.order}`] : r, []);
 
 const Col = (props) => {
+  // identity effectively removes undefined members of the resulting object
   const breakpointProps = pickBy(pick(props, ALLOWED_BREAKPOINTS), identity);
 
   const classes = classNames(
@@ -61,7 +62,8 @@ const widthBreakpointObj = propTypes.shape([
 
 const widthPt = propTypes.oneOfType([
   propTypes.string,
-  propTypes.number,
+  widthBreakpointObj,
+  propTypes.number
 ]);
 
 Col.propTypes = {
@@ -78,13 +80,13 @@ Col.propTypes = {
   responsiveParent: propTypes.bool,
   w: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  sm: widthBreakpointObj,
+  sm: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  md: widthBreakpointObj,
+  md: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  lg: widthBreakpointObj,
+  lg: widthPt,
   // eslint-disable-next-line react/no-unused-prop-types
-  xl: widthBreakpointObj,
+  xl: widthPt,
 };
 
 Col.defaultProps = {
