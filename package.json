@@ -17,6 +17,7 @@
     "build": "webpack -p",
     "lint": "eslint ./src/*.jsx --fix",
     "watch": "webpack --watch",
+    "start": "start-storybook -p 6006",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
