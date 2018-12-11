@@ -176,7 +176,6 @@ Adding the `debug` prop within container will add borders to Cols.
 | sm / md / lg / xl | any | Width based on breakpoint. Provide an object with valid keys `size`, `order`, `offset`  |
 | size | string / number | Property of width-based breakpoint. Sets width at specified breakpoint. Options are 1-12 |
 | order | string / number | Property of width-based breakpoint. Sets order at specified breakpoint. Options are 1-12 |
-| offset | string / number | Property of width breakpoint. Sets offset at specified breakpoint. Options are 1-12 |
 | styles	|obj | applies react css styles |
 | className |string | appends custom classes |
 
